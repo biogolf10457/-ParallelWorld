@@ -20,7 +20,7 @@ public class CameraTrack : MonoBehaviour
         //set start position of camera
         initX = Player.transform.position.x; 
         initY = Player.transform.position.y;
-        adjustY = 2.00f;
+        adjustY = 4.00f;
 
         //set background buffer
         mainCamera = gameObject.GetComponent<Camera>();

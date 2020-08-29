@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -18,6 +20,9 @@ public class Player : MonoBehaviour
     public GameObject rival;
     private Player rivalScript;
     private float slowDuration;
+    private float shieldDuration;
+    public GameObject shield;
+    public Text itemText;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,13 +40,23 @@ public class Player : MonoBehaviour
         //decrease time duration
         if(slowDuration > 0)
         {
-            UnityEngine.Debug.Log(slowDuration);
             slowDuration -= Time.deltaTime;
         }
         else
         {
             slowDuration = 0.0f;
             setDefault();
+        }
+
+        if (shieldDuration > 0)
+        {
+            shield.SetActive(true);
+            shieldDuration -= Time.deltaTime;
+        }
+        else
+        {
+            shield.SetActive(false);
+            shieldDuration = 0.0f;
         }
 
         //use item
@@ -53,10 +68,13 @@ public class Player : MonoBehaviour
             }
             if (string.Compare(items, "shield") == 0)
             {
-                //rival.slow();
+                this.createShield(2.00f);
             }
             items = "";
         }
+
+        //item text
+        itemText.text = items;
 
         //control movement
         if (Input.GetKey(left))
@@ -81,6 +99,11 @@ public class Player : MonoBehaviour
             Destroy(collision.gameObject);
             randomItem();
         }
+
+        if (collision.gameObject.CompareTag("Goal"))
+        {
+            UnityEngine.Debug.Log(this.name + " win !");
+        }
     }
 
     private void randomItem()
@@ -103,7 +126,14 @@ public class Player : MonoBehaviour
 
     public void slow(float duration)
     {
-        realSpeedY = realSpeedY / 2;
-        slowDuration = duration;
+        if(shieldDuration == 0)
+        {
+            realSpeedY = realSpeedY / 2;
+            slowDuration = duration;
+        }
+    }
+    public void createShield(float duration)
+    {
+        shieldDuration = duration;
     }
 }
