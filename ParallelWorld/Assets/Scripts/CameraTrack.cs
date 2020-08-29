@@ -35,8 +35,10 @@ public class CameraTrack : MonoBehaviour
     {
         float objectHeight = obj.GetComponent<SpriteRenderer>().bounds.size.y - choke;
         int childsNeeded = (int)Mathf.Ceil(screenBounds.y * 2 / objectHeight);
-        UnityEngine.Debug.Log(childsNeeded);
+        UnityEngine.Debug.Log(screenBounds.y + " , " + objectHeight);
         GameObject clone = Instantiate(obj) as GameObject;
+
+        childsNeeded = 2;
         for (int i = 0; i <= childsNeeded; i++)
         {
             GameObject c = Instantiate(clone) as GameObject;
@@ -56,15 +58,10 @@ public class CameraTrack : MonoBehaviour
             GameObject firstChild = children[1].gameObject;
             GameObject lastChild = children[children.Length - 1].gameObject;
             float halfObjectHeight = lastChild.GetComponent<SpriteRenderer>().bounds.extents.y - choke;
-            if (transform.position.y + screenBounds.y > lastChild.transform.position.y + halfObjectHeight)
+            if (transform.position.y + screenBounds.y > lastChild.transform.position.y - halfObjectHeight)
             {
                 firstChild.transform.SetAsLastSibling();
                 firstChild.transform.position = new Vector3(lastChild.transform.position.x, lastChild.transform.position.y + halfObjectHeight * 2, lastChild.transform.position.z);
-            }
-            else if (transform.position.y - screenBounds.y < firstChild.transform.position.y - halfObjectHeight)
-            {
-                lastChild.transform.SetAsFirstSibling();
-                lastChild.transform.position = new Vector3(firstChild.transform.position.x, firstChild.transform.position.y - halfObjectHeight * 2, firstChild.transform.position.z);
             }
         }
     }
