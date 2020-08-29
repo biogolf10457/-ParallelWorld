@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
     private string items;
     public GameObject rival;
     private Player rivalScript;
+    private float slowDuration;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,20 +26,30 @@ public class Player : MonoBehaviour
         realSpeedY = speedY;
         items = "";
         rivalScript = rival.GetComponent<Player>();
+        slowDuration = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-
+        //decrease time duration
+        if(slowDuration > 0)
+        {
+            UnityEngine.Debug.Log(slowDuration);
+            slowDuration -= Time.deltaTime;
+        }
+        else
+        {
+            slowDuration = 0.0f;
+            setDefault();
+        }
 
         //use item
         if (Input.GetKey(useItem) && string.Compare(items, "") != 0)
         {
             if(string.Compare(items, "frog") == 0)
             {
-                rivalScript.slow();
+                rivalScript.slow(2.00f);
             }
             if (string.Compare(items, "shield") == 0)
             {
@@ -73,7 +85,7 @@ public class Player : MonoBehaviour
 
     private void randomItem()
     {
-        if (this.transform.position.y >= rival.transform.position.y)
+        if (this.transform.position.y > rival.transform.position.y)
         {
             items = "shield";
         }
@@ -89,8 +101,9 @@ public class Player : MonoBehaviour
         realSpeedY = speedY;
     }
 
-    public void slow()
+    public void slow(float duration)
     {
         realSpeedY = realSpeedY / 2;
+        slowDuration = duration;
     }
 }

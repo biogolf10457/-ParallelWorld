@@ -6,7 +6,7 @@ using UnityEngine;
 public class CameraTrack : MonoBehaviour
 {
     public GameObject Player;
-    public float adjustY;
+    private float adjustY;
     private float initX;
     private float initY;
     public GameObject[] levels;
@@ -20,7 +20,7 @@ public class CameraTrack : MonoBehaviour
         //set start position of camera
         initX = Player.transform.position.x; 
         initY = Player.transform.position.y;
-
+        adjustY = 2.00f;
 
         //set background buffer
         mainCamera = gameObject.GetComponent<Camera>();
