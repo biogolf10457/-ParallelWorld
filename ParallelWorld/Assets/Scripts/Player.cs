@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
 {
     public float speedY;
     public float speedX;
+    private float speedXR;
     private Rigidbody2D rb;
     private BoxCollider2D boxCollider2d;
     public KeyCode left;
@@ -52,7 +53,6 @@ public class Player : MonoBehaviour
         else
         {
             slowDuration = 0.0f;
-            setDefault();
         }
         //immunity
         if (immunityDuration > 0)
@@ -63,6 +63,7 @@ public class Player : MonoBehaviour
         else
         {
             immunity.SetActive(false);
+            this.GetComponent<BoxCollider2D>().isTrigger = false;
             immunityDuration = 0.0f;
         }
         //blind
@@ -85,6 +86,10 @@ public class Player : MonoBehaviour
         else
         {
             trapDuration = 0.0f;
+        }
+        //set defualt if no debuff
+        if(trapDuration <= 0 && slowDuration <= 0)
+        {
             setDefault();
         }
 
@@ -120,11 +125,11 @@ public class Player : MonoBehaviour
         //control movement
         if (Input.GetKey(left))
         {
-            realSpeedX = -speedX * Time.deltaTime;
+            realSpeedX = -speedXR * Time.deltaTime;
         }
         else if (Input.GetKey(right))
         {
-            realSpeedX = speedX * Time.deltaTime;
+            realSpeedX = speedXR * Time.deltaTime;
         }
         else
         {
@@ -168,28 +173,31 @@ public class Player : MonoBehaviour
     private void setDefault()
     {
         realSpeedY = speedY;
+        speedXR = speedX;
     }
 
     public void slow(float duration)
     {
-        if(immunityDuration == 0)
+        if(immunityDuration <= 0)
         {
             realSpeedY = realSpeedY / 2;
+            speedXR = speedXR / 2;
             slowDuration = duration;
         }
     }
     public void blindVision(float duration)
     {
-        if (immunityDuration == 0)
+        if (immunityDuration <= 0)
         {
             blindDuration = duration;
         }
     }
     public void trap(float duration)
     {
-        if (immunityDuration == 0)
+        if (immunityDuration <= 0)
         {
-            realSpeedY = 0;
+            realSpeedY = 0.00f;
+            speedXR = 0.00f;
             trapDuration = duration;
         }
     }
@@ -197,6 +205,7 @@ public class Player : MonoBehaviour
     public void createImmunity(float duration)
     {
         immunityDuration = duration;
+        this.GetComponent<BoxCollider2D>().isTrigger = true;
     }
      
 }
