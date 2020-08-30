@@ -7,10 +7,12 @@ public class Item : MonoBehaviour
     private string name;
     private Player playerScript;
     private bool isCreated;
+    private string[] commonItem;
 
     void Start()
     {
         isCreated = false;
+        commonItem = new string[] { "shield", "potion", "vision", "hex", "power", "counter"};
     }
 
     // Update is called once per frame
@@ -41,5 +43,11 @@ public class Item : MonoBehaviour
     {
         name = itemName;
         isCreated = true;
+
+        if(string.Equals(itemName, "random"))
+        {
+            int rnd = Random.Range(0, commonItem.Length-1);
+            name = commonItem[rnd];
+        }
     }
 }
