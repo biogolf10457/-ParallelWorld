@@ -94,29 +94,20 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Item"))
-        {
-            Destroy(collision.gameObject);
-            randomItem();
-        }
-
         if (collision.gameObject.CompareTag("Goal"))
         {
             UnityEngine.Debug.Log(this.name + " win !");
         }
     }
 
-    private void randomItem()
+    public void setItem(string itemName)
     {
-        if (this.transform.position.y > rival.transform.position.y)
-        {
-            items = "shield";
-        }
-        else
-        {
-            items = "frog";
-        }
+        items = itemName;
         UnityEngine.Debug.Log(items);
+    }
+    public string getItem()
+    {
+        return items;
     }
 
     private void setDefault()
@@ -136,4 +127,5 @@ public class Player : MonoBehaviour
     {
         shieldDuration = duration;
     }
+     
 }
