@@ -12,7 +12,7 @@ public class Item : MonoBehaviour
     void Start()
     {
         isCreated = false;
-        commonItem = new string[] { "shield", "potion", "vision", "hex", "power", "counter"};
+        commonItem = new string[] { "immunity", "blocker", "blind", "slow", "trap" };
     }
 
     // Update is called once per frame

@@ -11,7 +11,7 @@ public class ItemManager : MonoBehaviour
     void Start()
     {
         childrenNum = gameObject.transform.childCount;
-        itemList = new string[]{"shield","potion","vision","swap","hex","trap","power","amulet","counter","random"};
+        itemList = new string[]{"immunity","blocker","blind","swap","slow","trap","random"};
     }
 
     // Update is called once per frame
@@ -24,62 +24,34 @@ public class ItemManager : MonoBehaviour
             if (child.transform.position.y < player.transform.position.y + 20 && !child.GetComponent<Item>().getIsCreated())
             {
                 //generate item
-                int randomNum = Random.Range(0, 100);
+                int randomNum = Random.Range(0, 62);
                 if (randomNum >= 0 && randomNum < 10)
                 {
-                    child.GetComponent<Item>().setName(itemList[0]); //sheild
+                    child.GetComponent<Item>().setName(itemList[0]); //immunity
                 }
                 else if (randomNum >= 10 && randomNum < 20)
                 {
-                    child.GetComponent<Item>().setName(itemList[1]); //potion
+                    child.GetComponent<Item>().setName(itemList[1]); //blocker 
                 }
                 else if (randomNum >= 20 && randomNum < 30)
                 {
-                    child.GetComponent<Item>().setName(itemList[2]); //vision
+                    child.GetComponent<Item>().setName(itemList[2]); //blind
                 }
-                else if (randomNum >= 30 && randomNum < 33)
+                else if (randomNum >= 30 && randomNum < 32)
                 {
                     child.GetComponent<Item>().setName(itemList[3]); //swap
                 }
-                else if (randomNum >= 33 && randomNum < 43)
+                else if (randomNum >= 32 && randomNum < 42)
                 {
-                    child.GetComponent<Item>().setName(itemList[4]); //hex
+                    child.GetComponent<Item>().setName(itemList[4]); //slow
                 }
-                else if (randomNum >= 43 && randomNum < 53)
+                else if (randomNum >= 42 && randomNum < 52)
                 {
                     child.GetComponent<Item>().setName(itemList[5]); //trap
                 }
-                else if (randomNum >= 53 && randomNum < 63)
+                else if (randomNum >= 52 && randomNum < 62)
                 {
-                    child.GetComponent<Item>().setName(itemList[6]); //power
-                }
-                else if (randomNum >= 63 && randomNum < 73)
-                {
-                    child.GetComponent<Item>().setName(itemList[7]); //amulet
-                }
-                else if (randomNum >= 73 && randomNum < 83)
-                {
-                    child.GetComponent<Item>().setName(itemList[8]); //counter
-                }
-                else if (randomNum >= 83 && randomNum < 101)
-                {
-                    child.GetComponent<Item>().setName(itemList[9]); //random
-                }
-
-                
-                if (player.transform.position.y > player.GetComponent<Player>().rival.transform.position.y) //condition for 1st runner
-                {
-                    if (randomNum >= 63 && randomNum < 73) //get amulet
-                    {
-                        child.GetComponent<Item>().setName(itemList[9]);
-                    }
-                }
-                else //condition for 2nd runner
-                {
-                    if (randomNum >= 43 && randomNum < 53) //get trap
-                    {
-                        child.GetComponent<Item>().setName(itemList[9]);
-                    }
+                    child.GetComponent<Item>().setName(itemList[6]); //random
                 }
             }
         }

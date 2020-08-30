@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,9 +21,13 @@ public class Player : MonoBehaviour
     public GameObject rival;
     private Player rivalScript;
     private float slowDuration;
-    private float shieldDuration;
-    public GameObject shield;
+    private float immunityDuration;
+    private float blindDuration;
+    private float trapDuration;
+    public GameObject immunity;
+    public GameObject blind;
     public Text itemText;
+    private float initX;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,13 +37,15 @@ public class Player : MonoBehaviour
         items = "";
         rivalScript = rival.GetComponent<Player>();
         slowDuration = 0.0f;
+        initX = transform.position.x;
     }
 
     // Update is called once per frame
     void Update()
     {
         //decrease time duration
-        if(slowDuration > 0)
+        //slow
+        if (slowDuration > 0)
         {
             slowDuration -= Time.deltaTime;
         }
@@ -47,28 +54,62 @@ public class Player : MonoBehaviour
             slowDuration = 0.0f;
             setDefault();
         }
-
-        if (shieldDuration > 0)
+        //immunity
+        if (immunityDuration > 0)
         {
-            shield.SetActive(true);
-            shieldDuration -= Time.deltaTime;
+            immunity.SetActive(true);
+            immunityDuration -= Time.deltaTime;
         }
         else
         {
-            shield.SetActive(false);
-            shieldDuration = 0.0f;
+            immunity.SetActive(false);
+            immunityDuration = 0.0f;
+        }
+        //blind
+        if (blindDuration > 0)
+        {
+            blind.SetActive(true);
+            blind.transform.position = new Vector3(initX, transform.position.y + 3, transform.position.z);
+            blindDuration -= Time.deltaTime;
+        }
+        else
+        {
+            blind.SetActive(false);
+            blindDuration = 0.0f;
+        }
+        //trap
+        if (trapDuration > 0)
+        {
+            trapDuration -= Time.deltaTime;
+        }
+        else
+        {
+            trapDuration = 0.0f;
+            setDefault();
         }
 
         //use item
-        if (Input.GetKey(useItem) && string.Compare(items, "") != 0)
+        if (Input.GetKey(useItem) && !string.Equals(items, ""))
         {
-            if(string.Compare(items, "frog") == 0)
+            if (string.Equals(items, "immunity"))
             {
-                rivalScript.slow(2.00f);
+                this.createImmunity(5.00f);
             }
-            if (string.Compare(items, "shield") == 0)
+            if (string.Equals(items, "blocker"))
             {
-                this.createShield(2.00f);
+                //do something
+            }
+            if (string.Equals(items, "blind"))
+            {
+                rivalScript.blindVision(4.00f);
+            }
+            if (string.Equals(items, "slow"))
+            {
+                rivalScript.slow(3.00f);
+            }
+            if (string.Equals(items, "trap"))
+            {
+                rivalScript.trap(2.00f);
             }
             items = "";
         }
@@ -102,8 +143,22 @@ public class Player : MonoBehaviour
 
     public void setItem(string itemName)
     {
-        items = itemName;
-        UnityEngine.Debug.Log(items);
+        if (string.Equals(itemName,"swap"))
+        {
+            float tmpX = rival.transform.position.x - rivalScript.initX;
+            float tmpY = rival.transform.position.y;
+            //change rival
+            rival.transform.position = new Vector3(rivalScript.initX + (transform.position.x - initX), transform.position.y, rival.transform.position.z);
+            //change myself
+            transform.position = new Vector3(initX + tmpX, tmpY, transform.position.z);
+
+            rivalScript.trap(2.00f);
+            this.trap(2.00f);
+        }
+        else
+        {
+            items = itemName;
+        }
     }
     public string getItem()
     {
@@ -117,15 +172,31 @@ public class Player : MonoBehaviour
 
     public void slow(float duration)
     {
-        if(shieldDuration == 0)
+        if(immunityDuration == 0)
         {
             realSpeedY = realSpeedY / 2;
             slowDuration = duration;
         }
     }
-    public void createShield(float duration)
+    public void blindVision(float duration)
     {
-        shieldDuration = duration;
+        if (immunityDuration == 0)
+        {
+            blindDuration = duration;
+        }
+    }
+    public void trap(float duration)
+    {
+        if (immunityDuration == 0)
+        {
+            realSpeedY = 0;
+            trapDuration = duration;
+        }
+    }
+
+    public void createImmunity(float duration)
+    {
+        immunityDuration = duration;
     }
      
 }
