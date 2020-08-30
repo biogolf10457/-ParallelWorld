@@ -1,17 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Threading;
 using UnityEngine;
 
 public class Item : MonoBehaviour
 {
     private string name;
     private Player playerScript;
+    private bool isCreated;
 
     void Start()
     {
-        
+        isCreated = false;
     }
 
     // Update is called once per frame
@@ -20,7 +19,7 @@ public class Item : MonoBehaviour
 
     }
 
-        private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -31,5 +30,16 @@ public class Item : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+
+    public bool getIsCreated()
+    {
+        return isCreated;
+    }
+
+    public void setName(string itemName)
+    {
+        name = itemName;
+        isCreated = true;
     }
 }

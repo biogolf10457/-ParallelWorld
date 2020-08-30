@@ -11,7 +11,7 @@ public class CameraTrack : MonoBehaviour
     private float initY;
     public GameObject[] levels;
     private Camera mainCamera;
-    private Vector2 screenBounds;
+    public Vector2 screenBounds;
     public float choke;
     public float scrollSpeed;
     // Start is called before the first frame update
