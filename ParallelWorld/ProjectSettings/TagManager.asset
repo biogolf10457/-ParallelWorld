@@ -8,6 +8,7 @@ TagManager:
   - foot
   - Item
   - Goal
+  - map
   layers:
   - Default
   - TransparentFX
