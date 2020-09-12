@@ -1,0 +1,593 @@
+fileFormatVersion: 2
+guid: e98ec0fc2e6d6ae42b421ead6938be41
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4754792397827362388
+    second: fog_of_war_0
+  - first:
+      213: -2888690782999742558
+    second: fog_of_war_1
+  - first:
+      213: 5005520987984314579
+    second: fog_of_war_2
+  - first:
+      213: -98946230402280232
+    second: fog_of_war_3
+  - first:
+      213: 5988765640439679439
+    second: fog_of_war_4
+  - first:
+      213: -3104118453827974007
+    second: fog_of_war_5
+  - first:
+      213: 2536050433428367723
+    second: fog_of_war_6
+  - first:
+      213: 4304296725412201200
+    second: fog_of_war_7
+  - first:
+      213: -2571409900502132213
+    second: fog_of_war_8
+  - first:
+      213: 7951655703434315770
+    second: fog_of_war_9
+  - first:
+      213: -8710608315799844916
+    second: fog_of_war_10
+  - first:
+      213: 8062421939661369685
+    second: fog_of_war_11
+  - first:
+      213: 3037486597473971656
+    second: fog_of_war_12
+  - first:
+      213: 6329964041877202560
+    second: fog_of_war_13
+  - first:
+      213: -5476811722242603187
+    second: fog_of_war_14
+  - first:
+      213: 68047880276538249
+    second: fog_of_war_15
+  - first:
+      213: 7016230417028272597
+    second: fog_of_war_16
+  - first:
+      213: -2491289992509349164
+    second: fog_of_war_17
+  - first:
+      213: 3172957148815464928
+    second: fog_of_war_18
+  - first:
+      213: -1868353311109344651
+    second: fog_of_war_19
+  - first:
+      213: 8865034287019443713
+    second: fog_of_war_20
+  - first:
+      213: 2483838899036540501
+    second: fog_of_war_21
+  - first:
+      213: 6481049373920977211
+    second: fog_of_war_22
+  - first:
+      213: -4207764587818910963
+    second: fog_of_war_23
+  - first:
+      213: 82694290395438363
+    second: fog_of_war_24
+  - first:
+      213: 637215738525107761
+    second: fog_of_war_25
+  - first:
+      213: 6784916373275876141
+    second: fog_of_war_26
+  - first:
+      213: -8650941301575175319
+    second: fog_of_war_27
+  - first:
+      213: -7516349411310722441
+    second: fog_of_war_28
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fog_of_war_2
+      rect:
+        serializedVersion: 2
+        x: 3372
+        y: 984
+        width: 779
+        height: 601
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d0419471de277540800000000000000
+      internalID: 5005520987984314579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_3
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 1217
+        width: 136
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d4120d7de870aef0800000000000000
+      internalID: -98946230402280232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_4
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 1215
+        width: 262
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc9c871ce9e5c1350800000000000000
+      internalID: 5988765640439679439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_6
+      rect:
+        serializedVersion: 2
+        x: 1887
+        y: 1154
+        width: 373
+        height: 242
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6929f0ce6cd13320800000000000000
+      internalID: 2536050433428367723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_9
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 1077
+        width: 517
+        height: 344
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af7496b8bb4f95e60800000000000000
+      internalID: 7951655703434315770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_11
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 384
+        width: 799
+        height: 614
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551f4de990a73ef60800000000000000
+      internalID: 8062421939661369685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_12
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 381
+        width: 818
+        height: 603
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cd227497f1572a20800000000000000
+      internalID: 3037486597473971656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_13
+      rect:
+        serializedVersion: 2
+        x: 1672
+        y: 374
+        width: 819
+        height: 618
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 086261d22cc88d750800000000000000
+      internalID: 6329964041877202560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_14
+      rect:
+        serializedVersion: 2
+        x: 2409
+        y: 931
+        width: 83
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d47c80a81c47ef3b0800000000000000
+      internalID: -5476811722242603187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_17
+      rect:
+        serializedVersion: 2
+        x: 2508
+        y: 470
+        width: 838
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2aef383f82d6dd0800000000000000
+      internalID: -2491289992509349164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_19
+      rect:
+        serializedVersion: 2
+        x: 3385
+        y: 431
+        width: 762
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 572176000964216e0800000000000000
+      internalID: -1868353311109344651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_22
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 488
+        height: 381
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b31e358411051f950800000000000000
+      internalID: 6481049373920977211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_24
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 0
+        width: 582
+        height: 363
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d19fbd40ac52100800000000000000
+      internalID: 82694290395438363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_25
+      rect:
+        serializedVersion: 2
+        x: 2052
+        y: 46
+        width: 126
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136c31c8658d7d800800000000000000
+      internalID: 637215738525107761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_26
+      rect:
+        serializedVersion: 2
+        x: 2946
+        y: 0
+        width: 569
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2b17d35e7dd82e50800000000000000
+      internalID: 6784916373275876141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_27
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 1211
+        width: 156
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9633bda88bea1f780800000000000000
+      internalID: -8650941301575175319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4151
+        height: 1585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca1b5c29185930eb0800000000000000
+      internalID: -4754792397827362388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fog_of_war_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 4151
+        height: 1585
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a7fa5da90f49e7d0800000000000000
+      internalID: -2888690782999742558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
