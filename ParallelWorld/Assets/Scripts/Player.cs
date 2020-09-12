@@ -25,13 +25,18 @@ public class Player : MonoBehaviour
     private float immunityDuration;
     private float blindDuration;
     private float trapDuration;
-    public GameObject immunity;
     public GameObject blind;
     public Text itemText;
     private float initX;
     public GameObject checkBorder;
     private float limitLenght;
     public Animator animator;
+    public GameObject winkEffect;
+    public GameObject light;
+    public GameObject dark;
+    private GameObject darkEffect;
+    public GameObject slowEffect;
+    private GameObject slowEffectObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +47,6 @@ public class Player : MonoBehaviour
         rivalScript = rival.GetComponent<Player>();
         slowDuration = 0.0f;
         initX = transform.position.x;
-        immunity.SetActive(false);
         limitLenght = checkBorder.transform.localScale.x / 2;
     }
 
@@ -51,11 +55,15 @@ public class Player : MonoBehaviour
     {
         //state of animation
         animator.SetFloat("realSpeedY", realSpeedY);
+        animator.SetFloat("immunityDuration", immunityDuration);
 
         //decrease time duration
         //slow
         if (slowDuration > 0)
         {
+            if(slowEffectObject != null){
+                slowEffectObject.transform.position = new Vector3 (transform.position.x , transform.position.y, transform.position.z);
+            }
             slowDuration -= Time.deltaTime;
         }
         else
@@ -65,12 +73,10 @@ public class Player : MonoBehaviour
         //immunity
         if (immunityDuration > 0)
         {
-            immunity.SetActive(true);
             immunityDuration -= Time.deltaTime;
         }
         else
         {
-            immunity.SetActive(false);
             this.GetComponent<BoxCollider2D>().isTrigger = false;
             immunityDuration = 0.0f;
         }
@@ -94,6 +100,9 @@ public class Player : MonoBehaviour
         else
         {
             trapDuration = 0.0f;
+            if(darkEffect != null){
+                Destroy(darkEffect);
+            }
         }
         //set defualt if no debuff
         if(trapDuration <= 0 && slowDuration <= 0)
@@ -169,12 +178,14 @@ public class Player : MonoBehaviour
             float tmpX = rival.transform.position.x - rivalScript.initX;
             float tmpY = rival.transform.position.y;
             //change rival
-            rival.transform.position = new Vector3(rivalScript.initX + (transform.position.x - initX), transform.position.y, rival.transform.position.z);
+            rival.transform.position = new Vector3(rivalScript.initX, transform.position.y, rival.transform.position.z);
             //change myself
-            transform.position = new Vector3(initX + tmpX, tmpY, transform.position.z);
+            transform.position = new Vector3(initX, tmpY, transform.position.z);
 
             rivalScript.trap(2.00f);
             this.trap(2.00f);
+            Destroy(darkEffect);
+            Instantiate(light, new Vector3(transform.position.x , transform.position.y, transform.position.z),transform.rotation);
         }
         else
         {
@@ -196,6 +207,7 @@ public class Player : MonoBehaviour
     {
         if(immunityDuration <= 0)
         {
+            slowEffectObject = Instantiate(slowEffect, new Vector3(transform.position.x , transform.position.y+1, transform.position.z),transform.rotation);
             realSpeedY = realSpeedY / 2;
             speedXR = speedXR / 2;
             slowDuration = duration;
@@ -212,6 +224,7 @@ public class Player : MonoBehaviour
     {
         if (immunityDuration <= 0)
         {
+            darkEffect = Instantiate(dark, new Vector3(transform.position.x , transform.position.y, transform.position.z),transform.rotation);
             realSpeedY = 0.00f;
             speedXR = 0.00f;
             trapDuration = duration;
@@ -220,6 +233,7 @@ public class Player : MonoBehaviour
 
     public void createImmunity(float duration)
     {
+        Instantiate(winkEffect, new Vector3(transform.position.x , transform.position.y + 1, transform.position.z),transform.rotation);
         immunityDuration = duration;
         this.GetComponent<BoxCollider2D>().isTrigger = true;
     }

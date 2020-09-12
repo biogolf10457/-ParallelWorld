@@ -22,7 +22,6 @@ public class SlideObstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            UnityEngine.Debug.Log("yes");
             direction *= -1;
         }
     }

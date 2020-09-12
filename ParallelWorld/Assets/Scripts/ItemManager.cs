@@ -33,8 +33,8 @@ public class ItemManager : MonoBehaviour
                 }
                 else if (randomNum >= 10 && randomNum < 20)
                 {
-                    child.GetComponent<Item>().setName(itemList[1]); //blocker 
-                    child.GetComponent<SpriteRenderer>().sprite = itemsSprite[1];
+                    child.GetComponent<Item>().setName(itemList[4]); //blocker //no more blocker, use slow instead
+                    child.GetComponent<SpriteRenderer>().sprite = itemsSprite[4];
                 }
                 else if (randomNum >= 20 && randomNum < 30)
                 {
