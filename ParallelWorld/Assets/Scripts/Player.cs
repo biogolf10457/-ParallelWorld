@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
             realSpeedX = 0;
         }
 
-        
+
         rb.velocity = new Vector2(realSpeedX, realSpeedY * Time.deltaTime);
         //avoid out of map
         if(transform.position.x > initX + limitLenght){
