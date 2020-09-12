@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
     public GameObject blind;
     public Text itemText;
     private float initX;
+    public GameObject checkBorder;
+    private float limitLenght;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
         rivalScript = rival.GetComponent<Player>();
         slowDuration = 0.0f;
         initX = transform.position.x;
+        immunity.SetActive(false);
+        limitLenght = checkBorder.transform.localScale.x / 2;
     }
 
     // Update is called once per frame
@@ -135,7 +139,15 @@ public class Player : MonoBehaviour
         {
             realSpeedX = 0;
         }
+
+        
         rb.velocity = new Vector2(realSpeedX, realSpeedY * Time.deltaTime);
+        //avoid out of map
+        if(transform.position.x > initX + limitLenght){
+            transform.position = new Vector3(initX + limitLenght, transform.position.y, transform.position.z);
+        }else if(transform.position.x < initX - limitLenght){
+            transform.position = new Vector3(initX - limitLenght, transform.position.y, transform.position.z);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
