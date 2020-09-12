@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     private float initX;
     public GameObject checkBorder;
     private float limitLenght;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //state of animation
+        animator.SetFloat("realSpeedY", realSpeedY);
+
         //decrease time duration
         //slow
         if (slowDuration > 0)

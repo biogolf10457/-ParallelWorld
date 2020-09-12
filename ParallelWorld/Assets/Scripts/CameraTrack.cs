@@ -63,6 +63,11 @@ public class CameraTrack : MonoBehaviour
                 firstChild.transform.SetAsLastSibling();
                 firstChild.transform.position = new Vector3(lastChild.transform.position.x, lastChild.transform.position.y + halfObjectHeight * 2, lastChild.transform.position.z);
             }
+            else if (transform.position.y - screenBounds.y < firstChild.transform.position.y + halfObjectHeight)
+            {
+                lastChild.transform.SetAsFirstSibling();
+                lastChild.transform.position = new Vector3(firstChild.transform.position.x, firstChild.transform.position.y - halfObjectHeight * 2, firstChild.transform.position.z);
+            }
         }
     }
 
