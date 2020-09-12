@@ -8,6 +8,7 @@ public class Item : MonoBehaviour
     private Player playerScript;
     private bool isCreated;
     private string[] commonItem;
+    public Sprite[] itemsSprite;
 
     void Start()
     {
