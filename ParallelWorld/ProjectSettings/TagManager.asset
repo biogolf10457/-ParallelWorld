@@ -9,6 +9,10 @@ TagManager:
   - Item
   - Goal
   - map
+  - FxTemporaire
+  - P2
+  - P1
+  - GoalFinal
   layers:
   - Default
   - TransparentFX

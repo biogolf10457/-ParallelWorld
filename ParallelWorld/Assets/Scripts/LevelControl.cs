@@ -13,12 +13,13 @@ public class LevelControl : MonoBehaviour
     private int Timer = 0;
     private int CountDownGame = 5;
     private IEnumerator coroutine;
-    public TMP_Text CountDownTMP;
+    public Text CountDownTMP;
 
     //Access to canvas for control menu UI.
     public Transform countingCanvas;
     public Transform pauseMenu;
     public Transform confirmMenu;
+    public Transform ResultWindow;
     public Image transition;
     public Animator trans_animation;
     private IEnumerator exitTransition;
@@ -31,13 +32,14 @@ public class LevelControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResultWindow.gameObject.SetActive(false);
         pauseMenu.gameObject.SetActive(false);
         confirmMenu.gameObject.SetActive(false);
         player1.GetComponent<Player>().enabled = false;
         player2.GetComponent<Player>().enabled = false;
         coroutine = CountDownStart(0);
         StartCoroutine(coroutine);
-        CountDownTMP.SetText(" ");
+        CountDownTMP.text = " ";
         exitTransition = DelayScene();
     }
 
@@ -54,34 +56,41 @@ public class LevelControl : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         print("Wait " + Timer);
-        CountDownTMP.SetText(CountDownGame.ToString());
+        CountDownTMP.text = CountDownGame.ToString();
+        //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.SetText(CountDownGame.ToString());
+        CountDownTMP.text = CountDownGame.ToString();
+        //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.SetText(CountDownGame.ToString());
+        CountDownTMP.text = CountDownGame.ToString();
+        //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.SetText(CountDownGame.ToString());
+        CountDownTMP.text = CountDownGame.ToString();
+        //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.SetText(CountDownGame.ToString());
+        CountDownTMP.text = CountDownGame.ToString();
+        //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.SetText("START");
+        CountDownTMP.text = "START";
+        //CountDownTMP.SetText("START");
         yield return new WaitForSeconds(1);
-        CountDownTMP.SetText(" ");
+        CountDownTMP.text = " ";
+        //CountDownTMP.SetText(" ");
         player1.GetComponent<Player>().enabled = true;
         player2.GetComponent<Player>().enabled = true;
         countingCanvas.gameObject.SetActive(false);

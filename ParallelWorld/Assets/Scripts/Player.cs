@@ -5,6 +5,7 @@ using System.Security.Cryptography;
 using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -37,6 +38,14 @@ public class Player : MonoBehaviour
     private GameObject darkEffect;
     public GameObject slowEffect;
     private GameObject slowEffectObject;
+
+    public Text Result;
+    public Animator ResultUI;
+    public Transform ResultWindow;
+    private IEnumerator finishgame;
+    public GameObject RestartBtn;
+    public GameObject MenuBtn;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +57,10 @@ public class Player : MonoBehaviour
         slowDuration = 0.0f;
         initX = transform.position.x;
         limitLenght = checkBorder.transform.localScale.x / 2;
+
+        RestartBtn.gameObject.SetActive(false);
+        MenuBtn.gameObject.SetActive(false);
+        finishgame = DelayGame();
     }
 
     // Update is called once per frame
@@ -57,7 +70,6 @@ public class Player : MonoBehaviour
         animator.SetFloat("realSpeedY", realSpeedY);
         animator.SetFloat("immunityDuration", immunityDuration);
 
-        //decrease time duration
         //slow
         if (slowDuration > 0)
         {
@@ -165,10 +177,33 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Goal"))
+        if (collision.gameObject.CompareTag("GoalFinal"))
         {
             UnityEngine.Debug.Log(this.name + " win !");
+            ResultWindow.gameObject.SetActive(true);
+            Result.color = Color.green;
+            Result.text = "WINNER";
+            ResultUI.SetBool("result", true);
+            StartCoroutine(finishgame);
         }
+    }
+
+        private IEnumerator DelayGame()
+    {
+        yield return new WaitForSeconds(3);
+        RestartBtn.gameObject.SetActive(true);
+        MenuBtn.gameObject.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    public void Restart() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+        public void Menu() {
+            Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
     public void setItem(string itemName)
@@ -237,5 +272,4 @@ public class Player : MonoBehaviour
         immunityDuration = duration;
         this.GetComponent<BoxCollider2D>().isTrigger = true;
     }
-     
 }

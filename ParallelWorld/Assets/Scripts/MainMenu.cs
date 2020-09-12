@@ -24,7 +24,6 @@ public class MainMenu : MonoBehaviour
     void Play()
     {
         coroutine = DelayScene();
-        loading_text.SetActive(true);
         StartCoroutine(coroutine);
     }
 
@@ -37,6 +36,7 @@ public class MainMenu : MonoBehaviour
     {
         trans_animation.SetBool("FadeOut", true);
         loading.SetBool("Loading", true);
+        loading_text.SetActive(true);
         yield return new WaitUntil(()=> transition.color.a==1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
