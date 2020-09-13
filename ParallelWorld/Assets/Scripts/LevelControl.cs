@@ -11,7 +11,7 @@ public class LevelControl : MonoBehaviour
 {
     //Set variables for control level include countdown start, pause and menu.
     private int Timer = 0;
-    private int CountDownGame = 5;
+    private int CountDownGame = 3;
     private IEnumerator coroutine;
     public Text CountDownTMP;
 
@@ -29,6 +29,8 @@ public class LevelControl : MonoBehaviour
     public GameObject player1;
     public GameObject player2;
 
+    public AudioSource m_AudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,7 @@ public class LevelControl : MonoBehaviour
         StartCoroutine(coroutine);
         CountDownTMP.text = " ";
         exitTransition = DelayScene();
+        m_AudioSource.Play();
     }
 
     void Update()
@@ -54,33 +57,24 @@ public class LevelControl : MonoBehaviour
     //IEnumerator for counting down game start.
     private IEnumerator CountDownStart(int CountNumber)
     {
+        
         yield return new WaitForSeconds(1);
-        print("Wait " + Timer);
+        Timer += 1;
         CountDownTMP.text = CountDownGame.ToString();
+        CountDownGame -= 1;
+        print("Wait " + Timer);
         //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
+        CountDownTMP.text = CountDownGame.ToString();
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.text = CountDownGame.ToString();
         //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;
+        CountDownTMP.text = CountDownGame.ToString();
         CountDownGame -= 1;
         print("Wait " + Timer);
-        CountDownTMP.text = CountDownGame.ToString();
-        //CountDownTMP.SetText(CountDownGame.ToString());
-        yield return new WaitForSeconds(1);
-        Timer += 1;
-        CountDownGame -= 1;
-        print("Wait " + Timer);
-        CountDownTMP.text = CountDownGame.ToString();
-        //CountDownTMP.SetText(CountDownGame.ToString());
-        yield return new WaitForSeconds(1);
-        Timer += 1;
-        CountDownGame -= 1;
-        print("Wait " + Timer);
-        CountDownTMP.text = CountDownGame.ToString();
         //CountDownTMP.SetText(CountDownGame.ToString());
         yield return new WaitForSeconds(1);
         Timer += 1;

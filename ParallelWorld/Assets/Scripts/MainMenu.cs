@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public Transform tutorialCanvas;
 
     public Image transition;
     public Animator trans_animation;
@@ -15,10 +16,13 @@ public class MainMenu : MonoBehaviour
     private IEnumerator coroutine;
 
     public GameObject loading_text;
+    public AudioSource m_AudioSource;
 
     void Start()
     {
+        tutorialCanvas.gameObject.SetActive(false);
         loading_text.SetActive(false);
+        m_AudioSource.Play();
     }
 
     void Play()
@@ -30,6 +34,14 @@ public class MainMenu : MonoBehaviour
     void Exit()
     {
         Application.Quit();
+    }
+
+    public void Tutorial() {
+        tutorialCanvas.gameObject.SetActive(true);
+    }
+
+    public void Close() {
+        tutorialCanvas.gameObject.SetActive(false);
     }
 
     private IEnumerator DelayScene()
